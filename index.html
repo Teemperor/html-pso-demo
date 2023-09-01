@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Graph - Canvas</title>
+<script src="fuzzer.js"></script>
+<script src="drawing.js"></script>
+<link rel="stylesheet" href="fuzzer.css">
+<style>
+#wrapper {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+</style>
+</head>
+ 
+<body>
+<div id="wrapper">
+<h1>PSO Simulator</h1>
+<div id="controls">
+    <div class="control_group">
+        <span>Cognitive Factor:</span>
+        <input class="slider" type="range" min="1" max="100"
+            value="50" id="option_startCognitive">
+        <span>Social Factor:</span>
+        <input class="slider" type="range" min="1" max="100"
+            value="50" id="option_startSocial">
+        <span>Inertia:</span>
+        <input class="slider" type="range" min="1" max="100"
+            value="50" id="option_startIntertia">
+    </div>
+    <div class="control_group">
+        <span>Update Interval:</span>
+        <input type="number" min="3" max="100"
+            value="50" id="option_updateInterval">
+        <span>Number of  Particles:</span>
+        <input type="number" min="3" max="100"
+            value="10" id="option_numParticles">
+    </div>
+    <div class="control_group">
+        <input class="fuzz_option"
+            id="option_randomizeLocalOnce"
+            type="checkbox">Randomize Cognitive Factor (Once)</input>
+        <input class="fuzz_option"
+            id="option_randomizeGlobalOnce"
+            type="checkbox">Randomize Social Factor (Once)</input>
+    </div>
+    <div class="control_group">
+        <input class="fuzz_option"
+            id="option_randomizeLocalEachCycle"
+            type="checkbox">Randomize Cognitive Factor (Every Update)</input>
+        <input class="fuzz_option"
+            id="option_randomizeGlobalEachCycle"
+            type="checkbox">Randomize Social Factor (Every Update)</input>
+    </div>
+    <button id="start" onclick="startSimulation()">Start</button>
+</div>
+<div id="stats"></div>
+<canvas id="canvas"  width="1000px" height="1000px"></canvas>
+</div>
+</body>
+</html>

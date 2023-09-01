@@ -1,0 +1,24 @@
+#canvas {
+    background-color: #ffffff;
+    width: 60vmin;
+    height: 60vmin;
+    border-style: solid;
+    border-color: black;
+}
+
+.control_group {
+    border-style: solid;
+    border-color: rgb(100, 96, 96);
+    padding: 0.3em;
+    margin: 0.3em;
+}
+
+#start {
+    color: rgb(117, 6, 6);
+    font-weight: bold;
+    margin: 0.3em;
+}
+
+.slider {
+    height: 0.6em;
+}

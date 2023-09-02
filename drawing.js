@@ -32,6 +32,13 @@ function drawParticle(ctx, particle) {
             canvasHeight - getYValue(particle.x),
             5, 0, Math.PI*2);
     ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = 'green';
+    ctx.arc(particle.localBest,
+            canvasHeight - getYValue(particle.localBest),
+            3, 0, Math.PI*2);
+    ctx.fill();
 }
 
 function drawAll() {

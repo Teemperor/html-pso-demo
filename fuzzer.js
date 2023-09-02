@@ -34,6 +34,12 @@ function updateYValues() {
         yVal += Math.sin(i / 20) * sinusPower;
         yValues[i] = yVal;
     }
+
+    globalBest = 0;
+    for (var i = 0; i < particles.length; i += 1) {
+        particles[i] = createParticle();
+    }
+
 }
 
 function getYValue(x) {
@@ -70,7 +76,12 @@ function updateParticle(p) {
     let localDx = (p.localBest - p.x);
     let globalDx = (globalBest - p.x);
     p.vx = p.inertia * p.vx + p.localBias * localDx + p.globalBias * globalDx;
-    p.x += p.vx;
+    p.x += p.vx * 0.1;
+
+    if (getYValue(p.x) > getYValue(p.localBest)) {
+        p.localBest = p.x;
+    }
+
     if (getYValue(p.x) > getYValue(globalBest)) {
         globalBest = p.x;
     }
@@ -86,7 +97,7 @@ function update() {
         updateParticle(particles[i]);
     }
     drawAll();
-    setTimeout(update, 80);
+    setTimeout(update, 100);
 }
 
 function isOptionOn(name) {
@@ -105,5 +116,5 @@ function startSimulation() {
     for (var i = 0; i < getOptionValue("numParticles"); ++i) {
         particles.push(createParticle());
     }
-    setTimeout(update, 80);
+    setTimeout(update, 100);
 }

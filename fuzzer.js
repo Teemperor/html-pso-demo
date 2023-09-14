@@ -37,7 +37,8 @@ function updateYValues() {
 
     globalBest = 0;
     for (var i = 0; i < particles.length; i += 1) {
-        particles[i] = createParticle();
+        if (isOptionOn("resetParticles"))
+            particles[i] = createParticle();
     }
 
 }

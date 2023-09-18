@@ -76,7 +76,8 @@ function updateParticle(p) {
 
     let localDx = (p.localBest - p.x);
     let globalDx = (globalBest - p.x);
-    p.vx = p.inertia * p.vx + p.localBias * localDx + p.globalBias * globalDx;
+    p.vx = p.inertia * p.vx + p.localBias * Math.random() * localDx +
+           p.globalBias * Math.random() * globalDx;
     p.x += p.vx * 0.1;
 
     if (getYValue(p.x) > getYValue(p.localBest)) {
